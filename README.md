@@ -48,7 +48,6 @@ logs/
 ## Framework
 
 ![Brain-DiT framework](./figures/framework.png)
-(b) **Downstream adaptation.** Multiple noisy views at selected timesteps are processed by the shared pretrained DiT. Token features from selected layers are aggregated to form a representation for downstream classification or regression.
 
 ## Dataset Summary
 
