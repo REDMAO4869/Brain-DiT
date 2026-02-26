@@ -5,11 +5,11 @@ Brain-DiT is a universal multi-state foundation model pretrained on 349,898 fMRI
 ## Repository Structure
 
 - `core/data`: data I/O and preprocessing utilities (CSV parsing, dataset loading, and helper functions)
-- `train`: Stage-1 raw-signal diffusion pretraining
-- `downstream`: Stage-3 downstream adaptation and embedding extraction
+- `train`: Diffusion pretraining
+- `downstream`: Downstream adaptation and embedding extraction
 - `configs`: example configuration files for training and inference
 - `scripts`: runnable shell scripts for training, inference, and demos
-  This repository includes only the modules required for raw-signal pretraining and downstream adaptation.
+  This repository includes only the modules required for pretraining and downstream adaptation.
 
 ## Data Splits (`splits/`)
 
