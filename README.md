@@ -1,6 +1,6 @@
 # BrainDIT
 
-Brain-DiT is a universal multi-state foundation model pretrained on 349,898 fMRI sessions from 24 datasets, encompassing resting, task, naturalistic, disease, and sleep states. Unlike prior fMRI foundation models that focus on masked input reconstruction or latent space alignment, _Brain-DiT_ models the generative distribution of region-of-interest (ROI) time series using a metadata-conditioned Diffusion Transformer (DiT), enabling universal representations that transfer across states and populations.aaaaaaaaaaa
+Brain-DiT is a universal multi-state foundation model pretrained on 349,898 fMRI sessions from 24 datasets, encompassing resting, task, naturalistic, disease, and sleep states. Unlike prior fMRI foundation models that focus on masked input reconstruction or latent space alignment, _Brain-DiT_ models the generative distribution of region-of-interest (ROI) time series using a metadata-conditioned Diffusion Transformer (DiT), enabling universal representations that transfer across states and populations.
 
 ## Repository Structure
 
