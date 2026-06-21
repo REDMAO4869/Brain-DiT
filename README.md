@@ -62,8 +62,8 @@ Summary of datasets used in this study.
 | 1         | HCP             |                707 |               1010 | 121222        | Resting      |
 | 2         | CHCP            |                218 |                312 | 16950         | Resting      |
 | 3         | ABCD            |               1680 |               2400 | 43186         | Resting      |
-| 4         | PIPO1           |                 56 |                 80 | 2060          | Resting      |
-| 5         | PIPO2           |                158 |                224 | 3360          | Resting      |
+| 4         | PIOP1           |                 56 |                 80 | 2060          | Resting      |
+| 5         | PIOP2           |                158 |                224 | 3360          | Resting      |
 | 6         | ISYB            |                131 |                187 | 1870          | Resting      |
 | 7         | NKI             |                502 |                717 | 12189         | Resting      |
 | 8         | BHRC            |                325 |                465 | 2325          | Resting      |
