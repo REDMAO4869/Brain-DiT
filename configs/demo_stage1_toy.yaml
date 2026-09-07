@@ -1,0 +1,76 @@
+seed: 42
+device: auto
+
+seq_len: 40
+roi_dim: 64
+crop_mode: center
+pad_mode: zeros
+batch_size: 8
+num_workers: 0
+
+data:
+  atlas: TOY
+  dataset_sampling: concat
+  subject_col: Subject
+  path_col: Path
+  path_prefix: null
+  strict_seq_len: true
+  datasets: [TOY]
+  splits:
+    train:
+      TOY:
+        csv: toy_data/train_demo/splits/train.csv
+    val:
+      TOY:
+        csv: toy_data/train_demo/splits/val.csv
+    test:
+      TOY:
+        csv: toy_data/train_demo/splits/test.csv
+
+diffusion:
+  num_steps: 100
+  schedule: cosine
+  pred_type: v
+
+dit:
+  patch_size: 4
+  d_model: 128
+  depth: 4
+  num_heads: 4
+  mlp_ratio: 4.0
+  dropout: 0.0
+  d_cond: 128
+  pos_embed: sincos
+  max_h: 128
+  max_w: 128
+
+optim:
+  lr: 1.0e-4
+  weight_decay: 1.0e-4
+  grad_clip_norm: 1.0
+  amp: false
+
+epochs: 2
+log_every_n_steps: 10
+save_every_n_epochs: 1
+output_dir: outputs/demo_stage1_toy
+
+condition:
+  enable: false
+  label_table: toy_data/train_demo/labels/metadata_stage1.csv
+  label_subject_col: Subject
+  label_age_col: age
+  label_gender_col: Gender
+  label_dx_cols: [ADHD_DX, PPMI_DX, ABIDE_DX, ADNI_DX]
+  cond_dim: 128
+  cond_drop_prob: 0.1
+  missing_label_policy: unconditional
+  use_null_embedding: true
+  tabular_dim: 0
+  use_text_cond: false
+
+losses:
+  use_xspace_loss: false
+  lambda_fc: 1.0
+  lambda_fft: 1.0
+  lambda_acf: 0.0
