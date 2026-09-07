@@ -1,0 +1,6 @@
+numpy
+pyyaml
+tqdm
+matplotlib
+tensorboard.
+torch>=1.13

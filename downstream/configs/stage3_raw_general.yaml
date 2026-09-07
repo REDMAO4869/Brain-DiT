@@ -1,0 +1,95 @@
+# Public-safe default: copy and edit paths before running.
+# For a complete template, see ../../configs/stage3_raw_general.example.yaml
+
+mode: linear_probe
+device: auto
+
+ckpt:
+  stage1_ckpt: /path/to/train/checkpoints/best.pt
+
+data:
+  dataset: DATASET_NAME
+  atlas: AA424
+  fold: 0
+  subject_col: Subject
+  path_col: Path
+  path_prefix: null
+  seq_len: 200
+  strict_seq_len: true
+  roi_dim: 424
+  crop_mode: center
+  pad_mode: zeros
+  num_workers: 4
+  batch_size: 8
+  splits:
+    train:
+      csv: /path/to/splits/train.csv
+    valid:
+      csv: /path/to/splits/val.csv
+    test:
+      csv: /path/to/splits/test.csv
+
+label:
+  label_csv_path: /path/to/labels/downstream.csv
+  subject_col: Subject
+  target_col: target
+  task_type: classification
+  num_classes: 2
+  zscore: false
+
+embedding:
+  timestep: 100
+  t_list: [0, 50, 100]
+  capture_layers: [-4, -2, -1]
+  pool: mean
+  noise_mode: per_subject
+  noise_seed: 0
+
+aggregator:
+  type: token_attn
+  use_layernorm: true
+  temperature: 1.0
+  q_len: 1
+  gate_hidden: 128
+  gate_dropout: 0.1
+  attn_heads: 4
+  attn_dropout: 0.1
+
+head:
+  mlp_hidden: 512
+  mlp_dropout: 0.1
+
+lora:
+  enable: true
+  target_blocks: 2
+  r: 8
+  alpha: 16
+  dropout: 0.05
+
+optim:
+  lr_dit: 1.0e-5
+  lr_head: 1.0e-4
+  lr_agg: 1.0e-4
+  weight_decay_dit: 1.0e-4
+  weight_decay_head: 0.0
+  weight_decay_agg: 0.0
+  betas: [0.9, 0.999]
+  eps: 1.0e-8
+
+train:
+  epochs: 20
+  patience: 5
+  amp: true
+  grad_clip_norm: 1.0
+  warmup_ratio: 0.05
+  best_metric: f1_weighted
+  use_class_weights: true
+  seed: 0
+  device: auto
+  use_ddp: false
+
+output:
+  out_root: outputs/downstream_raw
+  save_preds: true
+  save_plots: true
+  log_weights_every_epoch: true

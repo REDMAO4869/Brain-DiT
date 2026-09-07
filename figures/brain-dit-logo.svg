@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="128" viewBox="0 0 560 128" role="img" aria-labelledby="title desc">
+  <title id="title">Brain-DiT</title>
+  <desc id="desc">Brain-DiT logo with a brain icon, pink Brain text, cyan hyphen, and gray gradient DiT text.</desc>
+  <defs>
+    <linearGradient id="dit-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#555555"/>
+      <stop offset="100%" stop-color="#a6a6a6"/>
+    </linearGradient>
+  </defs>
+  <rect width="560" height="128" rx="12" fill="#ffffff"/>
+  <text x="26" y="87" font-family="Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, sans-serif" font-size="58">🧠</text>
+  <text x="105" y="88" font-family="Inter, Arial, Helvetica, sans-serif" font-size="68" font-weight="700" letter-spacing="-2">
+    <tspan fill="#ee86cc">Brain</tspan><tspan fill="#00c8cf">-</tspan><tspan fill="url(#dit-gradient)">DiT</tspan>
+  </text>
+</svg>

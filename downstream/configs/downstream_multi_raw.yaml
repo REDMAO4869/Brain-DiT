@@ -1,0 +1,42 @@
+# Multi-task launcher template for scripts/downstream_multi_raw.py
+
+base_config: downstream/configs/stage3_raw_general.yaml
+out_root: outputs/downstream_multi
+
+launch: python   # python | torchrun
+nproc: 1
+cuda_devices: "0"
+auto_master_port: true
+torchrun_standalone: true
+
+modes: [linear_probe]
+t_lists:
+  - [0, 50, 100]
+seq_lens: [200]
+agg_types: [token_attn]
+
+stage1_ckpts:
+  - /path/to/train/checkpoints/best.pt
+
+seeds: [42]
+
+eval_after:
+  train: false
+  valid: true
+  test: true
+
+epoch_eval:
+  test_each_epoch: false
+
+tasks:
+  - name: TASK_NAME
+    label_csv_path: /path/to/labels/downstream.csv
+    subject_col: Subject
+    target_col: target
+    task_type: classification
+    num_classes: 2
+    zscore: false
+    splits:
+      train: /path/to/splits/train.csv
+      valid: /path/to/splits/val.csv
+      test: /path/to/splits/test.csv
